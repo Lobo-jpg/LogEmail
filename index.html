@@ -1,314 +1,265 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Variações de Email Profissional</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gerador de Variações de Email Profissional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 15% 25%, rgba(88, 81, 216, 0.2), transparent 40%),
-                radial-gradient(circle at 85% 75%, rgba(37, 150, 255, 0.2), transparent 40%);
-            animation: move-aurora 20s infinite alternate linear;
-            z-index: -1;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      overflow: hidden;
+    }
 
-        @keyframes move-aurora {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(circle at 15% 25%, rgba(88, 81, 216, 0.2), transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(37, 150, 255, 0.2), transparent 40%);
+      animation: move-aurora 20s infinite alternate linear;
+      z-index: -1;
+    }
 
-        /* ✨ ANIMAÇÃO DE NEON ADICIONADA ✨ */
-        @keyframes neon-glow {
-            from {
-                box-shadow: 
-                    0 8px 32px 0 rgba(0, 0, 0, 0.37),
-                    0 0 10px rgba(59, 130, 246, 0.3),
-                    0 0 20px rgba(59, 130, 246, 0.2);
-            }
-            to {
-                box-shadow: 
-                    0 8px 32px 0 rgba(0, 0, 0, 0.37),
-                    0 0 20px rgba(59, 130, 246, 0.5),
-                    0 0 35px rgba(59, 130, 246, 0.3);
-            }
-        }
+    @keyframes move-aurora {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
-        /* ✨ CLASSE .glass-card ATUALIZADA COM O EFEITO NEON ✨ */
-        .glass-card {
-            background: rgba(13, 17, 23, 0.6);
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 1.25rem;
-            animation: neon-glow 4s infinite alternate ease-in-out;
-            transition: border 0.3s ease, box-shadow 0.3s ease;
-        }
+    @keyframes neon-glow {
+      from {
+        box-shadow:
+          0 8px 32px 0 rgba(0, 0, 0, 0.37),
+          0 0 10px rgba(59, 130, 246, 0.3),
+          0 0 20px rgba(59, 130, 246, 0.2);
+      }
+      to {
+        box-shadow:
+          0 8px 32px 0 rgba(0, 0, 0, 0.37),
+          0 0 20px rgba(59, 130, 246, 0.5),
+          0 0 35px rgba(59, 130, 246, 0.3);
+      }
+    }
 
-        .gradient-text {
-            background-image: linear-gradient(90deg, #818cf8, #3b82f6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+    .glass-card {
+      background: rgba(13, 17, 23, 0.6);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 1.25rem;
+      animation: neon-glow 4s infinite alternate ease-in-out;
+    }
 
-        .custom-input {
-            background-color: rgba(13, 17, 23, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
+    .gradient-text {
+      background-image: linear-gradient(90deg, #818cf8, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-        .custom-input:focus {
-            outline: none;
-            border-color: #60a5fa;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-        }
+    .custom-input {
+      background-color: rgba(13, 17, 23, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .result-box {
-            max-height: 280px;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: #3b82f6 #0d1117;
-        }
-        
-        .result-box::-webkit-scrollbar { width: 8px; }
-        .result-box::-webkit-scrollbar-track { background: transparent; }
-        .result-box::-webkit-scrollbar-thumb {
-            background-color: #3b82f6;
-            border-radius: 10px;
-            border: 2px solid transparent;
-            background-clip: content-box;
-        }
+    .custom-input:focus {
+      outline: none;
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    }
 
-        .is-copied {
-            color: #6b7280;
-            font-style: italic;
-        }
+    .result-box {
+      max-height: 280px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #3b82f6 #0d1117;
+    }
 
-        .is-copied::after {
-            content: "✓";
-            color: #4ade80;
-            font-weight: bold;
-            margin-left: 0.75rem;
-            font-style: normal;
-        }
-        
-        .is-copied:hover {
-             background-color: rgba(255, 255, 255, 0.05);
-        }
-    </style>
+    .result-box::-webkit-scrollbar { width: 8px; }
+    .result-box::-webkit-scrollbar-track { background: transparent; }
+    .result-box::-webkit-scrollbar-thumb {
+      background-color: #3b82f6;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+  </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center p-4">
 
-    <div class="w-full max-w-2xl glass-card p-8 relative">
-        
-        <div class="flex justify-between items-center mb-8">
-            <h1 class="text-4xl font-bold gradient-text tracking-tight">LogEmail</h1>
-            <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center border border-blue-500/30">
-                <i class="fas fa-sparkles text-blue-400"></i>
-            </div>
-        </div>
-        
-        <div class="mb-8">
-            <label for="email" class="block text-lg font-medium mb-3 text-gray-300">Seu endereço de e-mail</label>
-            <div class="relative">
-                <i class="fas fa-at absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-                <input type="email" id="email" class="w-full p-4 pl-12 text-lg custom-input rounded-xl" placeholder="seuemail@dominio.com">
-            </div>
-        </div>
-        
-        <div class="flex flex-col sm:flex-row justify-center mb-8 gap-4">
-            <button id="generateBtn" class="w-full sm:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-600/20 flex items-center justify-center text-base">
-                <i class="fas fa-bolt-lightning mr-2"></i> Gerar Variações
-            </button>
-            <button id="resetBtn" class="w-full sm:w-auto px-8 py-3 bg-gray-700/50 hover:bg-gray-700/80 text-gray-300 rounded-xl font-semibold uppercase tracking-wider border border-gray-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center text-base">
-                <i class="fas fa-redo mr-2"></i> Resetar
-            </button>
-        </div>
-        
-        <div class="mb-6">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-semibold text-gray-200">
-                    Resultados
-                    <span id="resultsCount" class="text-lg font-normal text-gray-400 ml-2"></span>
-                </h2>
-                <button id="downloadBtn" class="px-4 py-2 bg-green-600/20 text-green-400 border border-green-500/30 rounded-lg text-sm font-medium hidden hover:bg-green-600/40 transition-colors flex items-center gap-2">
-                    <i class="fas fa-download"></i> Baixar .TXT
-                </button>
-            </div>
-            <div id="results" class="result-box p-2 bg-black/30 rounded-lg border border-white/10 hidden">
-                <!-- Os resultados serão exibidos aqui. -->
-            </div>
-        </div>
-        
-        <div class="text-center text-xs text-gray-500 mt-8">
-            <p>Desenvolvido por <span class="font-semibold text-gray-400">LOBO NINTENDISTA</span></p>
-        </div>
+  <div class="w-full max-w-2xl glass-card p-8 relative">
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-4xl font-bold gradient-text">LogEmail</h1>
+      <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center border border-blue-500/30">
+        <i class="fas fa-sparkles text-blue-400"></i>
+      </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const emailInput = document.getElementById('email');
-            const generateBtn = document.getElementById('generateBtn');
-            const resetBtn = document.getElementById('resetBtn');
-            const downloadBtn = document.getElementById('downloadBtn');
-            const resultsDiv = document.getElementById('results');
-            const resultsCountSpan = document.getElementById('resultsCount');
+    <div class="mb-8">
+      <label for="email" class="block text-lg font-medium mb-3 text-gray-300">Seu endereço de e-mail</label>
+      <div class="relative">
+        <i class="fas fa-at absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+        <input type="email" id="email" class="w-full p-4 pl-12 text-lg custom-input rounded-xl" placeholder="seuemail@dominio.com">
+      </div>
+    </div>
 
-            resetBtn.addEventListener('click', function() {
-                emailInput.value = '';
-                resultsDiv.innerHTML = '';
-                resultsDiv.classList.add('hidden');
-                downloadBtn.classList.add('hidden');
-                resultsCountSpan.textContent = '';
-            });
-            
-            generateBtn.addEventListener('click', function() {
-                const email = emailInput.value.trim();
-                
-                if (!email || !email.includes('@')) {
-                    alert('Por favor, insira um email válido!');
-                    return;
-                }
-                
-                const [localPart, domain] = email.split('@');
-                const len = localPart.length;
+    <div class="flex flex-col sm:flex-row justify-center mb-8 gap-4 flex-wrap">
+      <button id="generateBtn" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold uppercase tracking-wider transform hover:scale-105 transition-all shadow-lg shadow-blue-600/20">
+        <i class="fas fa-bolt-lightning mr-2"></i> Gerar Variações
+      </button>
+      <button id="generateAliasBtn" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold uppercase tracking-wider transform hover:scale-105 transition-all shadow-lg shadow-indigo-600/20">
+        <i class="fas fa-random mr-2"></i> Gerar com +Alias
+      </button>
+      <button id="resetBtn" class="px-8 py-3 bg-gray-700/50 hover:bg-gray-700/80 text-gray-300 rounded-xl font-semibold uppercase tracking-wider border border-gray-600 transform hover:scale-105 transition-all">
+        <i class="fas fa-redo mr-2"></i> Resetar
+      </button>
+    </div>
 
-                if (len > 1) {
-                    const numVariations = Math.pow(2, len - 1);
-                    const WARNING_THRESHOLD = 4096; 
+    <div class="mb-6">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-semibold text-gray-200">Resultados <span id="resultsCount" class="text-lg font-normal text-gray-400 ml-2"></span></h2>
+        <button id="downloadBtn" class="px-4 py-2 bg-green-600/20 text-green-400 border border-green-500/30 rounded-lg text-sm font-medium hidden hover:bg-green-600/40 transition-colors flex items-center gap-2">
+          <i class="fas fa-download"></i> Baixar .TXT
+        </button>
+      </div>
+      <div id="results" class="result-box p-2 bg-black/30 rounded-lg border border-white/10 hidden"></div>
+    </div>
 
-                    if (numVariations > WARNING_THRESHOLD) {
-                        const proceed = confirm(
-                            `Atenção: Seu e-mail gerará ${numVariations.toLocaleString('pt-BR')} variações.\n\n` +
-                            `Isso pode deixar seu navegador lento ou até mesmo travá-lo por alguns instantes.\n\n` +
-                            `Deseja continuar mesmo assim?`
-                        );
-                        if (!proceed) {
-                            return; 
-                        }
-                    }
-                }
+    <div class="text-center text-xs text-gray-500 mt-8">
+      <p>Desenvolvido por <span class="font-semibold text-gray-400">LOBO NINTENDISTA</span></p>
+    </div>
+  </div>
 
-                setLoadingState(true);
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const emailInput = document.getElementById('email');
+      const generateBtn = document.getElementById('generateBtn');
+      const generateAliasBtn = document.getElementById('generateAliasBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const resultsDiv = document.getElementById('results');
+      const resultsCountSpan = document.getElementById('resultsCount');
 
-                setTimeout(() => {
-                    try {
-                        const variations = generateDotVariations(localPart);
-                        const count = variations.length;
-                        resultsCountSpan.textContent = `(${count.toLocaleString('pt-BR')})`;
-                        
-                        resultsDiv.innerHTML = '';
-                        variations.forEach(variation => {
-                            const emailVariation = `${variation}@${domain}`;
-                            const p = document.createElement('p');
-                            p.className = 'p-3 text-base text-blue-300 rounded-md hover:bg-white/5 transition-colors cursor-pointer';
-                            p.textContent = emailVariation;
-                            
-                            p.addEventListener('click', function() {
-                                copyElementText(this, emailVariation);
-                            });
+      resetBtn.addEventListener('click', () => {
+        emailInput.value = '';
+        resultsDiv.innerHTML = '';
+        resultsDiv.classList.add('hidden');
+        downloadBtn.classList.add('hidden');
+        resultsCountSpan.textContent = '';
+      });
 
-                            resultsDiv.appendChild(p);
-                        });
-                        
-                        resultsDiv.classList.remove('hidden');
-                        downloadBtn.classList.remove('hidden');
-                        
-                        downloadBtn.onclick = function() {
-                            const content = variations.map(v => `${v}@${domain}`).join('\n');
-                            downloadAsTxt(content, `variacoes_email_${localPart}_(${count}).txt`);
-                        };
-                    } finally {
-                        setLoadingState(false);
-                    }
-                }, 10);
-            });
+      generateBtn.addEventListener('click', () => {
+        const email = emailInput.value.trim();
+        if (!email || !email.includes('@')) {
+          alert('Por favor, insira um email válido!');
+          return;
+        }
 
-            function setLoadingState(isLoading) {
-                if (isLoading) {
-                    generateBtn.disabled = true;
-                    resetBtn.disabled = true;
-                    generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Gerando...';
-                } else {
-                    generateBtn.disabled = false;
-                    resetBtn.disabled = false;
-                    generateBtn.innerHTML = '<i class="fas fa-bolt-lightning mr-2"></i> Gerar Variações';
-                }
-            }
+        const [localPart, domain] = email.split('@');
+        const len = localPart.length;
+        const max = Math.pow(2, len - 1);
+        if (max > 4096) {
+          const cont = confirm(`Isso pode gerar ${max} variações. Deseja continuar?`);
+          if (!cont) return;
+        }
 
-            function copyElementText(element, textToCopy) {
-                if (element.classList.contains('is-copying')) return;
-                element.classList.add('is-copying');
+        setLoading(true);
+        setTimeout(() => {
+          const variations = generateDotVariations(localPart).map(v => `${v}@${domain}`);
+          showResults(variations, `variacoes_email_${localPart}(${variations.length}).txt`);
+          setLoading(false);
+        }, 10);
+      });
 
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    element.classList.add('is-copied');
-                    
-                    element.textContent = 'Copiado! ✅';
-                    element.classList.remove('text-blue-300');
-                    element.classList.add('text-green-400', 'font-semibold');
+      generateAliasBtn.addEventListener('click', () => {
+        const email = emailInput.value.trim();
+        if (!email || !email.includes('@')) {
+          alert('Por favor, insira um email válido!');
+          return;
+        }
 
-                    setTimeout(() => {
-                        element.textContent = textToCopy;
-                        element.classList.remove('text-green-400', 'font-semibold');
-                        element.classList.add('text-blue-300');
-                        element.classList.remove('is-copying');
-                    }, 1500);
-                }).catch(err => {
-                    console.error('Erro ao copiar e-mail: ', err);
-                    alert('Não foi possível copiar. Verifique as permissões do seu navegador.');
-                    element.classList.remove('is-copying');
-                });
-            }
-            
-            function generateDotVariations(str) {
-                const result = new Set();
-                const len = str.length;
-                if (len === 0) return [];
-                
-                function generate(index, current) {
-                    if (index === len) {
-                        result.add(current.endsWith('.') ? current.slice(0, -1) : current);
-                        return;
-                    }
+        const [localPart, domain] = email.split('@');
+        const numberOfAliases = 1500;
+        const aliases = new Set();
 
-                    generate(index + 1, current + str[index]);
+        while (aliases.size < numberOfAliases) {
+          const rand = generateRandomLetters(3);
+          aliases.add(`${localPart}+${rand}@${domain}`);
+        }
 
-                    if (index < len) {
-                         generate(index + 1, current + str[index] + '.');
-                    }
-                }
-                generate(0, '');
-                return Array.from(result);
-            }
-            
-            function downloadAsTxt(content, filename) {
-                const element = document.createElement('a');
-                element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
-                element.setAttribute('download', filename);
-                element.style.display = 'none';
-                document.body.appendChild(element);
-                element.click();
-                document.body.removeChild(element);
-            }
+        showResults(Array.from(aliases), `emails_alias_${localPart}.txt`);
+      });
+
+      function generateDotVariations(str) {
+        const result = new Set();
+        const len = str.length;
+
+        function generate(i, curr) {
+          if (i === len) {
+            result.add(curr.endsWith('.') ? curr.slice(0, -1) : curr);
+            return;
+          }
+          generate(i + 1, curr + str[i]);
+          if (i < len - 1) generate(i + 1, curr + str[i] + '.');
+        }
+
+        generate(0, '');
+        return Array.from(result);
+      }
+
+      function generateRandomLetters(len) {
+        const chars = 'abcdefghijklmnopqrstuvwxyz';
+        return Array.from({ length: len }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+      }
+
+      function showResults(list, filename) {
+        resultsDiv.innerHTML = '';
+        list.forEach(email => {
+          const p = document.createElement('p');
+          p.className = 'p-3 text-base text-blue-300 rounded-md hover:bg-white/5 transition-colors cursor-pointer';
+          p.textContent = email;
+          p.onclick = () => copyToClipboard(p, email);
+          resultsDiv.appendChild(p);
         });
-    </script>
+
+        resultsCountSpan.textContent = `(${list.length})`;
+        resultsDiv.classList.remove('hidden');
+        downloadBtn.classList.remove('hidden');
+        downloadBtn.onclick = () => downloadTxt(list.join('\n'), filename);
+      }
+
+      function copyToClipboard(el, text) {
+        navigator.clipboard.writeText(text).then(() => {
+          el.textContent = 'Copiado! ✅';
+          el.style.color = '#4ade80';
+          setTimeout(() => { el.textContent = text; el.style.color = ''; }, 1500);
+        });
+      }
+
+      function downloadTxt(content, filename) {
+        const link = document.createElement('a');
+        link.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+        link.setAttribute('download', filename);
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      function setLoading(state) {
+        generateBtn.disabled = state;
+        generateAliasBtn.disabled = state;
+        resetBtn.disabled = state;
+        generateBtn.innerHTML = state ? '<i class="fas fa-spinner fa-spin mr-2"></i> Gerando...' : '<i class="fas fa-bolt-lightning mr-2"></i> Gerar Variações';
+      }
+    });
+  </script>
+
 </body>
 </html>

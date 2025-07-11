@@ -16,13 +16,6 @@ Ideal para testes com serviços como Gmail, que ignoram pontos no nome do e-mail
 4. O usuário pode clicar em qualquer variação para copiá-la automaticamente.
 5. Também é possível **baixar todas as variações em um arquivo .TXT**.
 
-## Funcionalidades
-
-- Interface moderna com **efeito vidro (glassmorphism)** e **animação de brilho (neon)**.
-- Botões de **Gerar Variações**, **Resetar** e **Baixar .TXT**.
-- Sistema de **alerta automático** caso o número de variações seja muito grande (acima de 4096).
-- Caixa de **resultados com rolagem** e cópia com um clique.
-- Totalmente feito com **HTML**, **CSS** e **JavaScript** puro.
 
 ## Tecnologias Utilizadas
 
@@ -42,4 +35,4 @@ O projeto é composto por um único arquivo **HTML** com todo o conteúdo necess
 ## Autor
 
 Desenvolvido por **LOBO NINTENDISTA**  
-Projeto pessoal com foco em produtividade, automação e estilo visual moderno.
+Projeto pessoal com foco em produtividade e automação.
